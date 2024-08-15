@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.2.4/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <style>
+        /* Additional styles to handle dark mode in Tailwind CSS */
+        .dark {
+            --bg-color: #0c1521;
+            --text-color: #ffffff;
+        }
+
+        .light {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+
+
+    <!-- heading -->
+    <div class="head bg-indigo-500 w-screen h-36 flex justify-between items-center px-8">
+        <h1 class="text-white text-4xl  font-bold text-center w-full">Book Generator API</h1>
+        <!-- Toggle mode -->
+        <img src="night-mode.png" class="w-9 lg:w-12 cursor-pointer lg:mr-10 " id="theme-toggle">
+    </div>
+
+    <!-- navbar -->
+    <nav class=" border-gray-200 dark:bg-gray-800 sm:py-8 sticky top-0 z-50 flex justify-center">
+
+        <div class=" w-full lg:flex lg:w-auto" id="navbar-default">
+            <ul
+                class="md:text-center font-medium flex flex-col p-4 lg:p-0  border text-lg border-gray-100 rounded-lg bg-gray-50 lg:flex-row lg:space-x-8 rtl:space-x-reverse lg:mt-0 lg:border-0 lg:bg-white dark:bg-gray-800 lg:dark:bg-gray-900 dark:border-gray-700 lg:gap-8">
+
+                <li class="underline-animation">
+                    <a href="index.html"
+                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-200 lg:dark:hover:text-yellow-300 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent">OVERVIEW</a>
+                </li>
+                <li class="underline-animation">
+                    <a href="#overview"
+                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-200 lg:dark:hover:text-yellow-300 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent">AUTHENTICATION</a>
+                </li>
+                <li class="underline-animation">
+                    <a href="#authentication"
+                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-200 lg:dark:hover:text-yellow-300 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent">ENDPOINTS</a>
+                </li>
+                <li class="underline-animation">
+                    <a href="#tutorial"
+                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-200 lg:dark:hover:text-yellow-300 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent">TUTORIAL</a>
+                </li>
+                <li class="underline-animation">
+                    <a href="#tutorial"
+                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-200 lg:dark:hover:text-yellow-300 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent">CODE
+                        EXAMPLES</a>
+                </li>
+                <li class="underline-animation">
+                    <a href="#pricing"
+                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-200 lg:dark:hover:text-yellow-300 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent">PRICING</a>
+                </li>
+
+            </ul>
+        </div>
+        </div>
+    </nav>
+
+
+    <!-- Overview -->
+    <div class="overview  mt-5 ml-4 mr-4 lg:ml-80 lg:mr-80 md:ml-40 md:mr-40 border-2 border-b-2 border-gray-700 rounded-lg "
+        id="overview">
+        <h1 class="text-purple-300 md:text-2xl text-xl font-bold pl-2 mt-12 ml-3">Overview</h1>
+        <p class=" p-2 pb-4 lg:font-semibold text-md mb-5 mt-2 ml-3">The Book Generator API allows you to generate books
+            on various
+            topics
+            using
+            different
+            language models.
+            This documentation provides details on how to use the API, including authentication, available
+            endpoints,
+            and code examples.</p>
+    </div>
+
+    <!-- Authentication -->
+    <div class="overview  mt-5 ml-4 mr-4 lg:ml-80 lg:mr-80 md:ml-40 md:mr-40 border-2 border-b-2 border-gray-700 rounded-lg "
+        id="authentication">
+        <h1 class="text-purple-300 md:text-2xl text-xl font-bold pl-2 mt-8 ml-3">Authentication</h1>
+        <p class=" p-2 pb-4 lg:font-semibold text-sm mt-4 ml-3">
+            To use the API, you need to include your API key in the header of each request:</p>
+        <code class="sm:text-center border-2 border-b-2 border-gray-700 rounded-sm p-2  mt-4 ml-6">X-API-Key: YOUR_API_KEY
+        </code>
+        <p class=" p-2 pb-4 lg:font-semibold text-sm mt-4 ml-3">
+            To generate an API key, use the button below:</p>
+
+        <!-- code generator -->
+        <button class=" mt-4 ml-5  bg-blue-500 text-black p-2 rounded-md font-bold">Generate API Key</button>
+        <br>
+        <input
+            class="bg-transparent border border-white mt-7  ml-3 mb-6 pt-2 md:pb-2 md:pr-32 lg:pr-80 lg:pl-80 rounded-md"></input>
+    </div>
+
+    <!-- endpoints -->
+    <div class="overview  mt-5 ml-4 mr-4 lg:ml-80 lg:mr-80 md:ml-40 md:mr-40 border-2 border-b-2 border-gray-700 rounded-lg "
+        id="endpoints">
+        <h1 class="text-purple-300 md:text-2xl text-xl font-bold pl-2 mt-10 ml-3">Endpoints</h1>
+        <h1 class="subtopic text-purple-300 ml-5 text-lg font-bold mt-10 ">Generate Book</h1>
+        <h3 class="bg-blue-500 inline-block pl-5 pr-5 pt-1.5 pb-1.5 ml-3 rounded-md text-black font-bold mt-2">POST</h3>
+        <h3 class="bg-indigo-500 inline-block pl-5 pr-5 pt-2.5 pb-2.5 ml-3 rounded-md font-bold mt-2">
+            /api/generate-book
+
+        </h3>
+
+        <h3 class="ml-5 font-bold text-purple-300 text-lg mt-7 ">Request Body</h3>
+
+
+        <div class="relative overflow-x-auto ml-5 mr-5 rounded-md mt-4" id="endpoint">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
+                <thead class="text-sm  uppercase bg-indigo-500 text-white">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            PARAMETER
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            TYPE
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            DESCRIPTION
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-gray-800 border-b dark:bg-gray-800 dark:border-white">
+                        <th scope="row" class="px-6 py-4 font-medium text-blue-400 whitespace-nowrap dark:text-white">
+                            api
+                        </th>
+                        <td class="px-6 py-4 font-semibold text-gray-300">
+                            string
+                        </td>
+                        <td class="px-6 py-4 font-semibold text-gray-300">
+                            The API provider to use. Options: "openai" or "together
+                        </td>
+                    </tr>
+                    <tr class="bg-gray-800 border-b dark:bg-gray-800 dark:border-white">
+                        <th scope="row" class="px-6 py-4 font-medium text-blue-400 whitespace-nowrap dark:text-white">
+                            model
+                        </th>
+                        <td class="px-6 py-4 font-semibold text-gray-300">
+                            string
+                        </td>
+                        <td class="px-6 py-4 font-semibold text-gray-300">
+                            The specific model to use (e.g., "gpt-3.5-turbo", "gpt-4", "llama-2-70b")
+                        </td>
+
+                    </tr>
+                    <tr class="bg-gray-800 dark:bg-gray-800 border-white">
+                        <th scope="row" class="px-6 py-4 font-medium text-blue-400 whitespace-nowrap dark:text-white">
+                            topic
+                        </th>
+                        <td class="px-6 py-4 font-semibold text-gray-300">
+                            string
+                        </td>
+                        <td class="px-6 py-4 font-semibold text-gray-300">
+                            The main topic or theme of the book
+                        </td>
+
+                    </tr>
+                    <tr class="bg-gray-800 dark:bg-gray-800 border-white">
+                        <th scope="row" class="px-6 py-4 font-medium text-blue-400 whitespace-nowrap dark:text-white">
+                            language
+                        </th>
+                        <td class="px-6 py-4 font-semibold text-gray-300">
+                            string
+                        </td>
+                        <td class="px-6 py-4 font-semibold text-gray-300">
+                            The language in which the book should be generated
+                        </td>
+
+                    </tr>
+                    <tr class="bg-gray-800 dark:bg-gray-800">
+                        <th scope="row" class="px-6 py-4 font-medium text-blue-400 whitespace-nowrap dark:text-white">
+                            word_count
+                        </th>
+                        <td class="px-6 py-4 font-bold text-gray-300">
+                            integer
+                        </td>
+                        <td class="px-6 py-4 font-bold text-gray-300">
+                            The approximate number of words for the generated book
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="ml-5 font-bold text-purple-300 text-xl mt-7 ">Response</h3>
+            <div class="bg-gray-800 text-gray-300 font-mono text-sm  rounded-lg shadow-md w-full max-w-4xl h-36 mt-10 pl-3 pr-3 mb-5 overflow-hidden "
+                id="code">
+                <p class="mt-7 font-semibold ">
+                    "message:Books Generation started",
+                    "status:processing",
+                    "job-id:unique-job-identifier"
+                </p>
+
+                </code>
+                </pre>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="overview  mt-5 ml-4 mr-4 lg:ml-80 lg:mr-80 md:ml-40 md:mr-40 border-2 border-b-2 border-gray-700 rounded-lg "
+        id="tutorial">
+        <h1 class="text-purple-300 md:text-2xl text-xl font-bold pl-2 mt-5 ml-4">Tutorials</h1>
+        <!-- Step 1 -->
+        <h3 class="text-purple-400 font-bold ml-6 mt-4 text-lg">Step 1: Obtain an API Key</h3>
+        <p class="ml-6 text-lg mb-10">Generate an API key using the button in the Authentication section above.</p>
+        <!-- step 2 -->
+        <h3 class="text-purple-400 font-bold ml-6 mt-4 text-lg">Step 2: Make a Request</h3>
+        <p class="ml-6 mr-5 text-lg text-justify mb-10">Use your preferred programming language or tool to make a POST
+            request
+            to the /api/generate-book endpoint. Include your API key in the header and the required parameters in the
+            request
+            body.</p>
+        <!-- step 3 -->
+        <h3 class="text-purple-400 font-bold ml-6 mt-4 text-lg">Step 3: Handle the Response</h3>
+        <p class="ml-6 mr-5 text-md text-lg mb-10">
+            The API will return a response with a job ID. You can use this ID to check the status of your book
+            generation job.
+        </p>
+
+
+    </div>
+
+    <!-- code example -->
+    <div class="overview  mt-5 ml-4 mr-4 lg:ml-80 lg:mr-80 md:ml-40 md:mr-40 border-2 border-b-2 border-gray-700 rounded-lg "
+        id="code">
+        <h1 class="text-purple-300 md:text-2xl text-xl font-bold pl-2 mt-12 ml-3">Code Examples</h1>
+        <h3 class="text-purple-300 md:text-xl text-lg font-bold pl-2 mt-12 ml-3 lg:ml-12">Python</h3>
+        <div
+            class="bg-gray-800 text-gray-300 font-mono text-sm lg:ml-12 rounded-lg shadow-md w-fit max-w-3xl h-fit mt-2 pl-3 pr-3 mb-5 overflow-hidden whitespace-pre-wrap">
+            import requests
+
+            API_KEY = "your_api_key_here"
+            API_ENDPOINT = "https://tryBookAI.com/api/generate-book"
+
+            headers = {
+            "Content-Type": "application/json",
+            "X-API-Key": API_KEY
+            }
+
+            data = {
+            "api": "openai",
+            "model": "gpt-3.5-turbo",
+            "topic": "The Future of Artificial Intelligence",
+            "language": "English",
+            "word_count": 5000
+            }
+
+            response = requests.post(API_ENDPOINT, json=data, headers=headers)
+
+            if response.status_code == 200:
+            result = response.json()
+            print(f"Book generation started. Job ID: {result['job_id']}")
+            else:
+            print(f"Error: {response.status_code} - {response.text}")
+
+            </code>
+            </pre>
+        </div>
+        <h3 class="text-purple-300 md:text-xl text-lg font-bold pl-2 mt-12 lg:ml-12 ml-3">JavaScript (Node.js)</h3>
+        <div
+            class="bg-gray-800 text-gray-300 font-mono text-sm  rounded-lg shadow-md w-full max-w-3xl h-fit mt-2 lg:ml-12 pl-3 pr-3 mb-5 overflow-hidden whitespace-pre-wrap">
+            const axios = require('axios');
+
+            const API_KEY = 'your_api_key_here';
+            const API_ENDPOINT = 'https://tryBookAI.com/api/generate-book';
+
+            const headers = {
+            'Content-Type': 'application/json',
+            'X-API-Key': API_KEY
+            };
+
+            const data = {
+            api: 'openai',
+            model: 'gpt-3.5-turbo',
+            topic: 'The Future of Artificial Intelligence',
+            language: 'English',
+            word_count: 5000
+            };
+
+            axios.post(API_ENDPOINT, data, { headers })
+            .then(response =&gt; {
+            console.log(`Book generation started. Job ID: ${response.data.job_id}`);
+            })
+            .catch(error =&gt; {
+            console.error('Error:', error.response ? error.response.data : error.message);
+            });
+
+
+            </code>
+            </pre>
+        </div>
+    </div>
+
+    <!-- pricing -->
+    <div class="overview  mt-5 ml-4 mr-4 lg:ml-80 lg:mr-80 md:ml-40 md:mr-40 border-2 border-b-2 border-gray-700 rounded-lg "
+        id="pricing">
+        <h1 class="text-purple-300 md:text-2xl text-xl font-bold pl-2 mt-10 ml-3">API Pricing</h1>
+        <p class="ml-4">Our API pricing is based on the model used and the number of tokens processed. Here's a
+            breakdown of the
+            costs:</p>
+
+
+        <div class="relative overflow-x-auto ml-5 mr-5 rounded-md mt-4">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
+                <thead class="text-sm  uppercase bg-indigo-500 text-white">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            API
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            MODEL
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Price per 1K tokens
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-gray-800 border-b dark:bg-gray-800 dark:border-white">
+                        <th scope="row" class="px-6 py-4 font-medium text-blue-400 whitespace-nowrap dark:text-white">
+                            OpenAI
+                        </th>
+                        <td class="px-6 py-4 font-semibold text-gray-300">
+                            GPT-3.5
+                        </td>
+                        <td class="px-6 py-4 font-semibold text-gray-300">
+                            $0.002 </td>
+                    </tr>
+                    <tr class="bg-gray-800 border-b dark:bg-gray-800 dark:border-white">
+                        <th scope="row" class="px-6 py-4 font-medium text-blue-400 whitespace-nowrap dark:text-white">
+                            OpenAI
+                        </th>
+                        <td class="px-6 py-4 font-semibold text-gray-300">
+                            GPT-4
+                        </td>
+                        <td class="px-6 py-4 font-semibold text-gray-300">
+                            $0.03 </td>
+
+                    </tr>
+                    <tr class="bg-gray-800 dark:bg-gray-800 border-white">
+                        <th scope="row" class="px-6 py-4 font-medium text-blue-400 whitespace-nowrap dark:text-white">
+                            Together AI
+                        </th>
+                        <td class="px-6 py-4 font-semibold text-gray-300">
+                            Llama-2-70b
+                        </td>
+                        <td class="px-6 py-4 font-semibold text-gray-300">
+                            $0.0008 </td>
+
+                    </tr>
+                    <tr class="bg-gray-800 dark:bg-gray-800 border-white">
+                        <th scope="row" class="px-6 py-4 font-medium text-blue-400 whitespace-nowrap dark:text-white">
+                            Together AI
+                        </th>
+                        <td class="px-6 py-4 font-semibold text-gray-300">
+                            Llama-2-13b
+                        </td>
+                        <td class="px-6 py-4 font-semibold text-gray-300">
+                            $0.0006 </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <h3 class="text-purple-300 font-bold ml-3 mt-8 text-lg">Token Estimation</h3>
+            <p class="ml-3 mr-5 text-md text-lg mb-10">
+                On average, 1 token is approximately 4 characters or 0.75 words. For precise pricing, we recommend using
+                our token calculator tool.
+
+
+            </p>
+
+            <h3 class="text-purple-300 font-bold ml-3 mt-8 text-lg">Billing</h3>
+            <p class="ml-3 mr-5 text-md text-lg mb-10">
+                You will only be charged for the tokens used in generating the book. The API tracks token usage and
+                bills accordingly. Detailed usage reports are available in your account dashboard.
+
+
+            </p>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const toggleButton = document.getElementById('theme-toggle');
+                const currentTheme = localStorage.getItem('theme') || 'light';
+
+                // Apply the saved theme
+                document.body.classList.add(currentTheme);
+
+                toggleButton.addEventListener('click', () => {
+                    const isDarkMode = document.body.classList.contains('dark');
+
+                    if (isDarkMode) {
+                        document.body.classList.remove('dark');
+                        document.body.classList.add('light');
+                        localStorage.setItem('theme', 'light');
+                    } else {
+                        document.body.classList.remove('light');
+                        document.body.classList.add('dark');
+                        localStorage.setItem('theme', 'dark');
+                    }
+                });
+            });
+        </script>
+
+
+</body>
+
+</html>
